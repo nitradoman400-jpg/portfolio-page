@@ -13,22 +13,35 @@
 <a href="index.html">Gianni Battaglia</a>
 </div>
 <div class="header-right">
-<a href="work.html">Work</a>
-<a href="about.html">About</a>
+<a href="work.html" data-de="Arbeiten" data-en="Work">Work</a>
+<a href="about.html" data-de="Über" data-en="About">About</a>
+<button id="lang-toggle" class="lang-toggle" type="button" aria-label="Sprache wechseln">EN</button>
 </div>
 </div>
 <!-- About Section -->
 <main class="about">
 <p>
-<br>    
-Ich bin Gianni,<br> 
-Filmemacher aus Bern.<br>
-Nach jedem Dreh, der dann doch irgendwie geklappt hat, kicken bei mir Glücksgefühle wie sonst nie.<br> So müssen harte Drogen sein.<br>
-Ich will Filme machen — mit Leuten, die dieselbe Begeisterung mitbringen und mit Offenheit auf die Welt schauen. 
-Filme, die bewegen, unterhalten oder zu einem ehrlichen gesellschaftlichen Diskurs beitragen.<br>
-Bisher habe ich 4 Kurzfilme realisiert, bei TYMA Film GmbH im Werbefilm gearbeitet 
-und Erfahrung in Regie, Schnitt, Produktion und Setdesign gesammelt.<br>
-Ich suche momentan ein Praktikum in einer Filmproduktion.
+<br>
+<span
+  data-de="Ich bin Gianni,<br>Filmemacher aus Bern."
+  data-en="I'm Gianni,<br>a filmmaker from Bern."
+>Ich bin Gianni,<br>Filmemacher aus Bern.</span><br>
+<span
+  data-de="Nach jedem Dreh, der dann doch irgendwie geklappt hat, kicken bei mir Glücksgefühle wie sonst nie. So müssen harte Drogen sein."
+  data-en="After every shoot that somehow came together in the end, I get a rush like nothing else. Hard drugs must feel like that."
+>Nach jedem Dreh, der dann doch irgendwie geklappt hat, kicken bei mir Glücksgefühle wie sonst nie. So müssen harte Drogen sein.</span><br>
+<span
+  data-de="Ich will Filme machen — mit Leuten, die dieselbe Begeisterung mitbringen und mit Offenheit auf die Welt schauen. Filme, die bewegen, unterhalten oder zu einem ehrlichen gesellschaftlichen Diskurs beitragen."
+  data-en="I want to make films — with people who bring the same passion and look at the world with openness. Films that move people, entertain, or contribute to an honest social discourse."
+>Ich will Filme machen — mit Leuten, die dieselbe Begeisterung mitbringen und mit Offenheit auf die Welt schauen. Filme, die bewegen, unterhalten oder zu einem ehrlichen gesellschaftlichen Diskurs beitragen.</span><br>
+<span
+  data-de="Bisher habe ich 4 Kurzfilme realisiert, bei TYMA Film GmbH im Werbefilm gearbeitet und Erfahrung in Regie, Schnitt, Produktion und Setdesign gesammelt."
+  data-en="So far I've made 4 short films, worked in commercial filmmaking at TYMA Film GmbH, and gained experience in directing, editing, production, and set design."
+>Bisher habe ich 4 Kurzfilme realisiert, bei TYMA Film GmbH im Werbefilm gearbeitet und Erfahrung in Regie, Schnitt, Produktion und Setdesign gesammelt.</span><br>
+<span
+  data-de="Ich suche momentan ein Praktikum in einer Filmproduktion."
+  data-en="I'm currently looking for an internship at a film production company."
+>Ich suche momentan ein Praktikum in einer Filmproduktion.</span>
 </p>
 </main>
 
@@ -59,7 +72,7 @@ Ich suche momentan ein Praktikum in einer Filmproduktion.
 <!-- Filmographie -->
 <section class="filmographie">
   <button class="filmographie-toggle" aria-expanded="false">
-    Filmographie <span class="filmographie-arrow">↑</span>
+    <span data-de="Filmographie" data-en="Filmography">Filmographie</span> <span class="filmographie-arrow">↑</span>
   </button>
   <div class="filmographie-content">
     <ul>
@@ -107,6 +120,7 @@ Ich suche momentan ein Praktikum in einer Filmproduktion.
 </footer>
 
 <script src="portraet-scroll.js"></script>
+<script src="lang-toggle.js"></script>
 <script>
   const filmToggle = document.querySelector('.filmographie-toggle');
   const filmContent = document.querySelector('.filmographie-content');
