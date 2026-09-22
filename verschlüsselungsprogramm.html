@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <title>URL Verschlüsseln</title>
+  <style>
+    body { font-family: sans-serif; max-width: 600px; margin: 4rem auto; padding: 2rem; }
+    input, textarea { width: 100%; padding: 0.5rem; margin: 0.5rem 0 1rem 0; font-size: 1rem; }
+    button { padding: 0.75rem 2rem; font-size: 1rem; cursor: pointer; }
+    #result { margin-top: 2rem; word-break: break-all; background: #f0f0f0; padding: 1rem; border-radius: 4px; display: none; }
+  </style>
+</head>
+<body>
+  <h2>Video URL verschlüsseln</h2>
+  <label>Passwort:</label>
+  <input type="password" id="password" placeholder="deinPasswort" />
+  <label>Video URL (R2-Link):</label>
+  <input type="text" id="videoUrl" placeholder="https://deine-r2-url.com/film.mp4" />
+  <button onclick="encrypt()">Verschlüsseln</button>
+
+  <div id="result">
+    <strong>Encrypted URL (in HTML einfügen):</strong>
+    <textarea id="output" rows="4" readonly></textarea>
+  </div>
+
+  <script>
+    async function encrypt() {
+      const password = document.getElementById('password').value;
+      const videoUrl = document.getElementById('videoUrl').value;
+
+      if (!password || !videoUrl) {
+        alert('Bitte Passwort und URL eingeben.');
+        return;
+      }
+
+      const enc = new TextEncoder();
+      const keyMaterial = await crypto.subtle.importKey(
+        'raw', enc.encode(password), 'PBKDF2', false, ['deriveKey']
+      );
+      const key = await crypto.subtle.deriveKey(
+        { name: 'PBKDF2', salt: enc.encode('giannibattaglia'), iterations: 100000, hash: 'SHA-256' },
+        keyMaterial,
+        { name: 'AES-GCM', length: 256 },
+        false, ['encrypt']
+      );
+      const iv = crypto.getRandomValues(new Uint8Array(12));
+      const encrypted = await crypto.subtle.encrypt(
+        { name: 'AES-GCM', iv },
+        key,
+        enc.encode(videoUrl)
+      );
+      const combined = new Uint8Array(iv.byteLength + encrypted.byteLength);
+      combined.set(iv, 0);
+      combined.set(new Uint8Array(encrypted), iv.byteLength);
+      const base64 = btoa(String.fromCharCode(...combined));
+
+      document.getElementById('output').value = base64;
+      document.getElementById('result').style.display = 'block';
+    }
+  </script>
+</body>
+</html>

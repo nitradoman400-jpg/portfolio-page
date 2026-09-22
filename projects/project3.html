@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Project Title – Work</title>
+
+  <!-- Plyr CSS ZUERST -->
+  <link rel="stylesheet" href="https://cdn.plyr.io/3.7.8/plyr.css">
+
+  <!-- Dein CSS IMMER ZULETZT -->
+  <link rel="stylesheet" href="../styles.css">
+</head>
+
+<body class="project-page">
+
+  <div class="page">
+
+    <!-- HEADER (identisch überall) -->
+    <div class="header-text">
+      <div class="header-left">
+        <a href="../index.html">Gianni Battaglia</a>
+      </div>
+      <div class="header-right">
+        <a href="../work.html">Work</a>
+        <a href="../about.html">About</a>
+      </div>
+    </div>
+
+    <!-- PROJEKT -->
+    <main class="project">
+
+      <!-- TITEL OBEN -->
+      <section class="project-title">
+        <h1>Running Gag</h1>
+      </section>
+
+      <!-- PLAYER -->
+      <section class="project-media">
+        <div class="video-container">
+          <video
+            id="player"
+            playsinline
+            controls
+          >
+            <source src="https://pub-6ce06dd964fd411d97ee5a481330f27f.r2.dev/project3.mp4" type="video/mp4">
+            Dein Browser unterstützt kein HTML5-Video.
+          </video>
+        </div>
+      </section>
+
+      <!-- CREDITS -->
+      <section class="project-meta">
+      <ul>
+        <li>Starring:</li>
+        <li>Cindy Verehrer - Alexander Sury</li>
+        <li>Taxifahrer - Hanspeter Schmid</li>
+        
+       <div style="height: 1em;"></div>
+        
+        <li>Crew:</li>
+        <li>Regie&Kamera&Drehbuch - Gianni Battaglia</li>
+        <li>Ton - Saskian Heinzmann, Florian Michel</li>
+        <li>Nico Drechsel</li>
+        <li>Max Sury</li>
+        <li>Lennie Fiechter</li>
+        <li>Sofia Battaglia</li>
+        <li>Rafael Battaglia</li>
+        <li>Markus Battaglia</li>
+        <li>Lorin Abegglen</li>
+        <li>Maria Wieruszewska</li>
+      </ul>
+      </section>
+
+      <!-- BEHIND THE SCENES -->
+      <section class="bts">
+        <button class="bts-toggle" aria-expanded="false">
+          Behind the Scenes <span class="bts-arrow">↑</span>
+        </button>
+        <div class="bts-content">
+          <!-- Bilder hier einfügen, z.B.: -->
+          <!-- <img src="../images/bts/project3/bts1.jpg" alt="BTS"> -->
+        </div>
+      </section>
+
+    </main>
+
+    <!-- FOOTER (identisch überall) -->
+    <footer class="footer">
+      <div class="footer-left">© Gianni Battaglia</div>
+      <div class="footer-center">
+        <a href="https://www.instagram.com/giann1.i/" target="_blank">Instagram</a>
+      </div>
+      <div class="footer-right">
+        <a href="mailto:battaglia.gianni@gmx.ch">battaglia.gianni@gmx.ch</a>
+      </div>
+    </footer>
+
+  </div>
+
+  <!-- Plyr JS -->
+  <script src="https://cdn.plyr.io/3.7.8/plyr.polyfilled.js"></script>
+  <script>
+    const player = new Plyr('#player', {
+      controls: [
+        'play',
+        'progress',
+        'current-time',
+        'mute',
+        'volume',
+        'fullscreen'
+      ],
+      ratio: '16:9'
+    });
+  </script>
+
+<script src="../scripts/fit-title.js"></script>
+<script>
+  const btsToggle = document.querySelector('.bts-toggle');
+  const btsContent = document.querySelector('.bts-content');
+
+  btsToggle.addEventListener('click', () => {
+    const expanded = btsToggle.getAttribute('aria-expanded') === 'true';
+    btsToggle.setAttribute('aria-expanded', !expanded);
+    btsContent.style.maxHeight = expanded ? '0' : btsContent.scrollHeight + 'px';
+  });
+</script>
+</body>
+</html>

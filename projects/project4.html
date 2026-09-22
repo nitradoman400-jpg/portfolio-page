@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Am Tag davor – Gianni Battaglia</title>
+  <link rel="stylesheet" href="https://cdn.plyr.io/3.7.8/plyr.css">
+  <link rel="stylesheet" href="../styles.css">
+  <style>
+    .pw-overlay {
+      position: absolute;
+      inset: 0;
+      background: rgba(0, 0, 0, 0.55);
+      backdrop-filter: blur(6px);
+      -webkit-backdrop-filter: blur(6px);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      z-index: 10;
+      border-radius: 4px;
+    }
+
+    .pw-box {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 0.75rem;
+      color: white;
+      text-align: center;
+    }
+
+    .pw-box p {
+      font-size: 0.9rem;
+      opacity: 0.8;
+      margin: 0;
+    }
+
+    .pw-box input[type="password"] {
+      background: rgba(255, 255, 255, 0.15);
+      border: 1px solid rgba(255, 255, 255, 0.4);
+      color: white;
+      padding: 0.5rem 1rem;
+      border-radius: 4px;
+      font-size: 1rem;
+      width: 220px;
+      outline: none;
+      text-align: center;
+    }
+
+    .pw-box input[type="password"]::placeholder {
+      color: rgba(255, 255, 255, 0.5);
+    }
+
+    .pw-box button {
+      background: white;
+      color: black;
+      border: none;
+      padding: 0.5rem 1.5rem;
+      border-radius: 4px;
+      font-size: 0.9rem;
+      font-weight: 700;
+      cursor: pointer;
+    }
+
+    .pw-error {
+      color: #ff6b6b;
+      font-size: 0.85rem;
+      display: none;
+    }
+
+    .video-container {
+      position: relative;
+    }
+  </style>
+</head>
+<body class="project-page">
+<div class="page">
+
+  <!-- HEADER -->
+  <div class="header-text">
+    <div class="header-left">
+      <a href="../index.html">Gianni Battaglia</a>
+    </div>
+    <div class="header-right">
+      <a href="../work.html">Work</a>
+      <a href="../about.html">About</a>
+    </div>
+  </div>
+
+  <!-- PROJEKT -->
+  <main class="project">
+
+    <!-- TITEL -->
+    <section class="project-title">
+      <h1>Am Tag davor</h1>
+    </section>
+
+    <!-- PLAYER mit Passwort-Overlay -->
+    <section class="project-media">
+      <div class="video-container">
+
+        <!-- Passwort Gate -->
+        <div class="pw-overlay" id="pw-overlay">
+          <div class="pw-box">
+            <p>Passwortgeschützt</p>
+            <input type="password" id="pw-input" placeholder="Passwort" />
+            <button id="pw-btn">Ansehen</button>
+            <span class="pw-error" id="pw-error">Falsches Passwort</span>
+          </div>
+        </div>
+
+        <!-- Player -->
+        <video id="player" playsinline controls poster="../images/project4.jpg">
+          <source src="" type="video/mp4">
+        </video>
+
+      </div>
+    </section>
+
+    <!-- CREDITS -->
+    <section class="project-meta">
+      <ul>
+        <li>In Entwicklung;</li>
+        <div style="height: 1em;"></div>
+        <li>Starring:</li>
+        <li>Hauptrolle - Jaap Achterberg</li>
+        <li>Besoffener - Jochen H. Fischer</li>
+        <div style="height: 1em;"></div>
+
+        <li>Crew:</li>
+        <li>Drehbuch&Regie - Gianni Battaglia</li>
+        <li>Kamera - Elia Grunder</li>
+        <li>Kameraassistenz - Timo Hauke</li>
+        <li>Licht - David Valimar</li>
+        <li>Ton - Florian Michel</li>
+        <li>Hair & Makeup - Cindy Kosseda</li>
+        <li>Setdesign - Cid Blaser, Elina Dill, Florian Michel, Levi Jaun, Gianni Battaglia</li>
+        <li>Catering - Levi Jaun</li>
+        <li>Edit - Gianni Battaglia</li>
+        <li>Grading - Gianni Battaglia, Elia Grunder</li>
+        <div style="height: 1em;"></div>
+
+
+        <li>Special Thanks:</li>
+        <li>Tymafilm&Studio104</li>
+        <li>Kulturbüro Bern</li>
+        <li>Cinelight</li>
+        <li>Octamas</li>
+        <li>Heitere Fahne Sargbau</li>
+        <li>Familie Blaser</li>
+        <li>Karin Hauser</li>
+        <li>Lorin Abegglen</li>
+      </ul>
+    </section>
+
+    <!-- BEHIND THE SCENES -->
+    <section class="bts">
+      <button class="bts-toggle" aria-expanded="false">
+        Behind the Scenes <span class="bts-arrow">↑</span>
+      </button>
+      <div class="bts-content">
+        <!-- Bilder hier einfügen, z.B.: -->
+        <!-- <img src="../images/bts/project4/bts1.jpg" alt="BTS"> -->
+      </div>
+    </section>
+
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="footer-left">© Gianni Battaglia</div>
+    <div class="footer-center">
+      <a href="https://www.instagram.com/giann1.i/" target="_blank">Instagram</a>
+    </div>
+    <div class="footer-right">
+      <a href="mailto:battaglia.gianni@gmx.ch">battaglia.gianni@gmx.ch</a>
+    </div>
+  </footer>
+
+</div>
+
+<!-- Plyr JS -->
+<script src="https://cdn.plyr.io/3.7.8/plyr.polyfilled.js"></script>
+
+<script>
+  const ENCRYPTED_URL = 'GqDMHQQDiFKVet3uyQtOHY+qJ7R5y/bjaRJAQT4NDt9XxpExefpwz3AilVxY9pnkvZMhdJQgUa12+NadPBaHMmRSX0or/1Tpw+rLq31i+8uyTPiXASwiv0C/r1zCLF/QYZcxHq44s4QxMVAfJGk=';
+
+  async function unlock(password) {
+    try {
+      const enc = new TextEncoder();
+      const keyMaterial = await crypto.subtle.importKey(
+        'raw', enc.encode(password), 'PBKDF2', false, ['deriveKey']
+      );
+      const key = await crypto.subtle.deriveKey(
+        { name: 'PBKDF2', salt: enc.encode('giannibattaglia'), iterations: 100000, hash: 'SHA-256' },
+        keyMaterial,
+        { name: 'AES-GCM', length: 256 },
+        false, ['decrypt']
+      );
+      const bytes = Uint8Array.from(atob(ENCRYPTED_URL), c => c.charCodeAt(0));
+      const iv = bytes.slice(0, 12);
+      const data = bytes.slice(12);
+      const decrypted = await crypto.subtle.decrypt({ name: 'AES-GCM', iv }, key, data);
+      const videoUrl = new TextDecoder().decode(decrypted);
+
+      // Overlay ausblenden
+      document.getElementById('pw-overlay').style.display = 'none';
+
+      // Plyr initialisieren
+      const player = new Plyr('#player', {
+        controls: ['play', 'progress', 'current-time', 'mute', 'volume', 'fullscreen'],
+        ratio: '16:9'
+      });
+
+      // URL via Plyr setzen und abspielen
+      player.source = {
+        type: 'video',
+        sources: [{ src: videoUrl, type: 'video/mp4' }]
+      };
+
+      player.once('canplay', () => player.play());
+
+    } catch (e) {
+      console.error('Unlock Fehler:', e);
+      document.getElementById('pw-error').style.display = 'block';
+    }
+  }
+
+  document.getElementById('pw-btn').addEventListener('click', () => {
+    unlock(document.getElementById('pw-input').value);
+  });
+
+  document.getElementById('pw-input').addEventListener('keydown', e => {
+    if (e.key === 'Enter') unlock(document.getElementById('pw-input').value);
+  });
+</script>
+
+<script src="../scripts/fit-title.js"></script>
+<script>
+  const btsToggle = document.querySelector('.bts-toggle');
+  const btsContent = document.querySelector('.bts-content');
+
+  btsToggle.addEventListener('click', () => {
+    const expanded = btsToggle.getAttribute('aria-expanded') === 'true';
+    btsToggle.setAttribute('aria-expanded', !expanded);
+    btsContent.style.maxHeight = expanded ? '0' : btsContent.scrollHeight + 'px';
+  });
+</script>
+</body>
+</html>
